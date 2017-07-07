@@ -43,4 +43,25 @@ References: [dont-env](https://github.com/bkeepers/dotenv)
 
 - `$ rackup config.ru`
 - Open browser with default port 9292 `localhost:9292`
+- Get statistic:
+```
+# GET localhost:9292/stats
+{
+  "sidekiq": {
+    "processed": 12345,
+    "failed": 56,
+    "busy": 25,
+    "enqueued": 178,
+    "scheduled": 0,
+    "retries": 0,
+    "default_latency": 12
+  },
+  "redis": {
+    "connected_clients": "120",
+    "uptime_in_days": "35",
+    "used_memory_human": "602.31M",
+    "used_memory_peak_human": "1.01G"
+  }
+}
+```
 
