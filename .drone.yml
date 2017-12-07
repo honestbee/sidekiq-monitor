@@ -1,0 +1,29 @@
+pipeline:
+  publish:
+    image: plugins/docker
+    repo: quay.io/honestbee/sidekiq-monitor
+    registry: quay.io
+    secrets: [ docker_username, docker_password, bundle_gems__contribsys__com ]
+    build_args_from_env:
+      - bundle_gems__contribsys__com
+    tags:
+      - ${DRONE_COMMIT_BRANCH}-${DRONE_COMMIT_SHA:0:8}
+      - ${DRONE_COMMIT_BRANCH}
+      - community-${DRONE_COMMIT_SHA:0:8}
+      - community
+    when:
+      branch: [ master ]
+
+  publish-pro:
+    image: plugins/docker
+    repo: quay.io/honestbee/sidekiq-monitor
+    registry: quay.io
+    dockerfile: Dockerfile.pro
+    secrets: [ docker_username, docker_password, bundle_gems__contribsys__com ]
+    build_args_from_env:
+      - bundle_gems__contribsys__com
+    tags:
+      - pro-${DRONE_COMMIT_SHA:0:8}
+      - pro
+    when:
+      branch: [ master ]
