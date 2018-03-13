@@ -1,8 +1,7 @@
 FROM ruby:2.3-alpine
 ARG BUNDLE_GEMS__CONTRIBSYS__COM
 COPY Gemfile .
-RUN apt-get update
-RUN apt-get install -y wget git-core
+RUN apk --update add git
 RUN bundle config github.https true
 RUN gem install bundler && \
 bundle install
