@@ -1,6 +1,7 @@
 require 'dotenv/load'
 require 'sidekiq'
 require 'sidekiq/web'
+require 'sidekiq-statistic'
 
 Sidekiq.configure_client do |config|
   config.redis = {
