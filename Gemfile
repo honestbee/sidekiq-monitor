@@ -7,3 +7,4 @@ source "https://gems.contribsys.com/" do
   gem 'sidekiq-pro', '~> 3.5.0'
 end
 gem 'sidekiq-statistic', github: 'davydovanton/sidekiq-statistic'
+gem 'sidekiq-scheduler'

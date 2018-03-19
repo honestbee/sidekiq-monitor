@@ -1,6 +1,7 @@
 require 'dotenv/load'
 require 'sidekiq-pro'
 require 'sidekiq/pro/web'
+require 'sidekiq-scheduler/web'
 require 'sidekiq-statistic'
 
 Sidekiq.configure_client do |config|
